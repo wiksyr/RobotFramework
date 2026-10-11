@@ -3,9 +3,9 @@
 
 *** Variables ***
 ${url}                  https://rahulshettyacademy.com/loginpagePractise/
-${user_name}            rahulshettyacademy
-${invalid_password}     123456
-${valid_password}       Learning@830$3mK2
+${global_user_name}            rahulshettyacademy
+${global_invalid_password}     123456
+${global_valid_password}       Learning@830$3mK2
 ${defaultTimeout}       10
 
 ${checkoutElement}      xpath://a[contains(@class, 'nav-link') and normalize-space()='Shop']
