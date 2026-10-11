@@ -2,6 +2,7 @@
 Documentation    To validate the List of Products
 Library          SeleniumLibrary
 Library          Collections
+Library          customLibs/shopLib.py
 Test Setup       open the browser with the Mortgage payment url
 Test Teardown    CLose Browser
 Resource         common.resource
@@ -10,20 +11,21 @@ Resource         common.resource
 ${listProductsElement}                css:.card-title
 ${addBtnElement}                      css:.btn.btn-info
 ${product}                            Blackberry
+@{productsList}                       Blackberry     iphone x
 
 
 *** Test Cases ***
 Validate displayed list of products
-    fill in the login form            ${user_name}            ${valid_password}
+    fill in the login form            ${global_user_name}            ${global_valid_password}
     Wait For Element To Be Visible    ${checkoutElement}
     Get Displayed List of Products
     Confirm That List Contains the Following Products 
 
 Validate the functionality of adding product to the list
-    fill in the login form            ${user_name}            ${valid_password}
+    fill in the login form            ${global_user_name}            ${global_valid_password}
     Wait For Element To Be Visible    ${checkoutElement}
     Get Displayed List Of Products
-    Add To Checkout    ${product}
+    Select All Products And Checkout    ${productsList}
 
 *** Keywords ***
 Get Displayed List of Products
