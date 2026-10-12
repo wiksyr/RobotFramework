@@ -22,6 +22,7 @@ Validate displayed list of products
     ProductListPage.Confirm That List Contains the Following Products
 
 Validate the functionality of adding product to the checkout
+    [Tags]    NEWFEATURE
     LandingPage.fill in the login form            ${global_user_name}            ${global_valid_password}
     ProductListPage.Wait For Its Loaded
     ProductListPage.Get Displayed List Of Products

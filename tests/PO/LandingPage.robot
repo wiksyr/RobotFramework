@@ -5,6 +5,7 @@ Library          SeleniumLibrary
 
 *** Variables ***
 ${errorMsgElement}    css:.alert.alert-danger
+${browserName}        Chrome
 
 
 
@@ -12,7 +13,7 @@ ${errorMsgElement}    css:.alert.alert-danger
 open the browser with the Mortgage payment url
     ${options}=    Evaluate    sys.modules['selenium.webdriver'].ChromeOptions()    sys, selenium.webdriver
     Call Method    ${options}    add_experimental_option    prefs    ${{ {'profile.password_manager_leak_detection': False} }}
-    Create Webdriver    Chrome    options=${options}
+    Create Webdriver    ${browserName}    options=${options}
     Go To    ${url}
     Maximize Browser Window
 
