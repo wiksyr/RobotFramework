@@ -13,7 +13,4 @@ class Shop:
         for productsTitle in productsTitles:
             if productsTitle.text in productsList:
                 self.selenium.click_button("xpath:(//*[@class='card-footer'])["+str(i)+"]/button")
-
             i = i + 1
-
-        self.selenium.click_link("css:li.active a")

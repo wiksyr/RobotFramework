@@ -2,27 +2,18 @@
 *** Settings ***
 
 *** Variables ***
-${url}                  https://rahulshettyacademy.com/loginpagePractise/
+${url}                         https://rahulshettyacademy.com/loginpagePractise/
 ${global_user_name}            rahulshettyacademy
 ${global_invalid_password}     123456
 ${global_valid_password}       Learning@830$3mK2
-${defaultTimeout}       10
-
-${checkoutElement}      xpath://a[contains(@class, 'nav-link') and normalize-space()='Shop']
-
+${defaultTimeout}              10
 
 *** Keywords ***
-open the browser with the Mortgage payment url
-    Create Webdriver    Chrome
-    Go To    ${url}
-    Maximize Browser Window
-
-fill in the login form
-    [Arguments]        ${username}    ${password}
-    Input Text         id:username    ${username}
-    Input Password     id:password    ${password}
-    Click Button       id:signInBtn
-
 wait for element to be visible
     [Arguments]    ${element}
     Wait Until Element Is Visible     ${element}     ${defaultTimeout}
+
+verify error message is correct
+    [Arguments]    ${element}    ${errorMsg}
+    ${result}=     Get Text     ${element}
+    Should Be Equal As Strings     ${result}    ${errorMsg}
