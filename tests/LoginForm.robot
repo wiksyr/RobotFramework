@@ -13,6 +13,7 @@ Login with user ${user_name} and password ${password}
 
 *** Keywords ***
 Validate UnSuccessful Login
+    [Tags]    REGRESSION
     [Arguments]     ${user_name}    ${password}
     LandingPage.fill in the login form    ${user_name}    ${password}
     wait for element to be visible    ${errorMsgElement}

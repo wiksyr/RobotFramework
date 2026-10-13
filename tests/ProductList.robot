@@ -16,6 +16,7 @@ Resource         PO/CheckoutPage.robot
 
 *** Test Cases ***
 Validate displayed list of products
+    [Tags]    REGRESSION
     LandingPage.fill in the login form            ${global_user_name}            ${global_valid_password}
     ProductListPage.Wait For Its Loaded
     ProductListPage.Get Displayed List of Products
